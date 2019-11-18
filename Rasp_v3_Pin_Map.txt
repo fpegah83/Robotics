@@ -1,0 +1,48 @@
+Raspberry Pi Mode B
+
+GPIO pins read 0.0v for LOW
+               3.3v for HIGH
+
+IRSensor (5v)
+  pin 4  -> 5v
+  pin 6  -> Ground
+  pin 7  -> GPIO04_GCLK
+
+SDSensor (5v)
+  pin 2  -> 5v           (red)
+  pin 14 -> Ground       (black)
+  pin 16 -> GPIO23_GEN4  (blue) Trigger
+  pin 18 -> GPIO24_GEN5  (white) Echo
+
+L298 Motor Driver
+  pin  -> GPIO16 = L298 ENA (blue)  Enabla OUT 1/2
+  pin  -> GPIO20 = L298 ENB (blue)  Enable OUT 3/4
+  pin 11 -> GPIO17 = L298 IN1 (grey) OUT1 motor
+  pin 33 -> GPIO13 = L298 IN2 (grey) OUT2 motor
+  pin 13 -> GPIO27 = L298 IN3 (white) OUT3 motor    
+  pin 12 -> GPIO18 = L298 IN4 (white) OUT4 motor
+
+
+Side ODD                                       Side EVEN
+Pin#   Name                                    Pin#   Name
+
+ 01     3.3v                  ->            ||  02     5v                     -> SDSensor
+ 03     GPIO02 (SDA1, i2c)    ->            ||  04     5v                     -> IRSensor
+ 05     GPIO03 (SCL1, i2c)    ->            ||  06     Ground                 -> IRSensor
+ 07     GPIO04 (GPIO_GCLK)    -> IRSensor   ||  08     GPIO14 (TXD0)          ->
+ 09     Ground                ->            ||  10     GPIO15 (RXD0)          ->
+ 11     GPIO17 (GPIO_GEN0)    -> L298 IN1   ||  12     GPIO18 (GPIO_GEN1)     -> L298 IN4
+ 13     GPIO27 (GPIO_GEN2)    -> L298 IN3   ||  14     Ground                 -> SDSensor
+ 15     GPIO22 (GPIO_GEN3)    ->            ||  16     GPIO23 (GPIO_GEN4)     -> SDSensor
+ 17     3.3v                  ->            ||  18     GPIO24 (GPIO_GEN5)     -> SDSensor
+ 19     GPIO10 (SPI_MOSI)     ->            ||  20     Ground                 ->
+ 21     GPIO09 (SPI_MISO)     ->            ||  22     GPIO25 (GPIO_GEN6)     ->
+ 23     GPIO11 (SPI_CLK)      ->            ||  24     GPIO08 (SPI_CEO_N)     ->
+ 25     Ground                ->            ||  26     GPIO07 (SPI_CE1_N)     ->
+ 27     ID_SD (i2c ID EEPROM) ->            ||  28     ID_SC  (i2c ID EEPROM) ->
+ 29     GPIO05                ->            ||  30     Ground                 ->
+ 31     GPIO06                ->            ||  32     GPIO12                 ->
+ 33     GPIO13                -> L298 IN2   ||  34     Ground                 ->
+ 35     GPIO19                ->            ||  36     GPIO16                 -> L298 ENA
+ 37     GPIO26                ->            ||  38     GPIO20                 -> L298 ENB
+ 39     Ground                ->            ||  40     GPIO21                 ->
